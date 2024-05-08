@@ -637,7 +637,7 @@ class Shumps extends Phaser.Scene {
             for (let power of my.sprite.powerUp) {
                 if (this.collides(my.sprite.bird, power)) {
                     power.x = -100;
-                    this.sound.play('playerPower');
+                    this.sound.get('playerPower');
                     this.activatePowerUp(power);
                 }
             }
@@ -647,6 +647,7 @@ class Shumps extends Phaser.Scene {
         if (this.numLives == 0 && this.gamePause == false) {
             // Remove all bullets before starting a new game
             this.gamePause = true;
+            this.scene.get('gameOver').data.set('playerScore', this.playerScore);
             this.sound.play('gameOver_sfx');
             this.scene.get('audio').stopMusic('backgroundMusic');
 
