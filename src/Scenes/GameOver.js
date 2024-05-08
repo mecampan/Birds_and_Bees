@@ -23,10 +23,12 @@ class GameOver extends Phaser.Scene {
             align: 'center'  // Align text in the center
         }).setOrigin(0.5);
 
-        let playerScore = this.data.get('playerScore');
+        let playerScore = this.data.get('playerScore') || 0;
+        console.log(playerScore); // Check what value it holds, should not be undefined
 
         // Retrieve high score from local storage or set to 0 if not found
         let highScore = parseInt(localStorage.getItem('highScore')) || 0;
+        console.log(highScore); // Check what value it holds, should not be undefined
 
         // Check if the current score is greater than the high score
         if (playerScore > highScore) {
