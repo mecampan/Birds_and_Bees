@@ -647,7 +647,6 @@ class Shumps extends Phaser.Scene {
         if (this.numLives == 0 && this.gamePause == false) {
             // Remove all bullets before starting a new game
             this.gamePause = true;
-            this.sound.play('gameOver');
             this.sound.play('gameOver_sfx');
             this.scene.get('audio').stopMusic('backgroundMusic');
 
